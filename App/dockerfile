@@ -1,0 +1,19 @@
+FROM python:3.11-slim
+
+# Set working directory and install dependencies
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY app.py .
+
+# Create a non-root user and switch to it (for security)
+RUN useradd -ms /bin/bash appuser && chown -R appuser /app
+USER appuser
+
+# Expose the application's port
+EXPOSE 5000
+
+# Run the Flask app
+CMD ["python", "app.py"]
