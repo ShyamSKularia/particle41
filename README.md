@@ -1,5 +1,3 @@
-# particle41
-
 # SimpleTimeService
 
 A simple Python web service that returns the current time and client IP address, packaged as a Docker container and deployable on AWS (ECS Fargate with an Application Load Balancer) using Terraform.
